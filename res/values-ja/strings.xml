@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Text Processer</string>
+	<string name="copy">コピー</string>
+	<string name="share">共有</string>
+	<string name="ok">OK</string>
+	<string name="cancel">Cancel</string>
+	<string name="hint">(text)</string>
+	<string name="message">text data</string>
+	<string name="copy_success">クリップボードにコピーしました。</string>
+</resources>

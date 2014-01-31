@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Text Processet</string>
+	<string name="copy">Copy</string>
+	<string name="share">Share</string>
+	<string name="ok">OK</string>
+	<string name="cancel">Cancel</string>
+	<string name="hint">(text)</string>
+	<string name="message">text data</string>
+	<string name="copy_success">Copied to clipboard.</string>
+</resources>
