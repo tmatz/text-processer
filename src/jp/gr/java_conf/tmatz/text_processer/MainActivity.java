@@ -23,9 +23,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.Fragment;
 
-public class MainActivity extends Activity
+public class MainActivity extends FragmentActivity
+implements StageFragment.StageFragmentListener
 {
+
+	@Override
+	public void updateStage(StageFragment sf)
+	{
+		// TODO: Implement this method
+	}
+	
 	public static final String ACTION_INTERCEPT = "com.adamrocker.android.simeji.ACTION_INTERCEPT";
 	public static final String EXTRA_REPLACE_KEY = "replace_key";
 	private static final String TAG = "MainActivity";
@@ -47,7 +60,45 @@ public class MainActivity extends Activity
 		String origString = null;
 
 		setContentView(R.layout.main_activity);
+		final ViewPager pager = (ViewPager) findViewById(R.id.pager);
+		PagerAdapter pa = new FragmentStatePagerAdapter(getSupportFragmentManager())
+		{
+			@Override
+			public int getCount()
+			{
+				return 2;
+			}
 
+			@Override
+			public Fragment getItem(int position)
+			{
+				switch (position)
+				{
+					case 0:
+						return new InputFragment();
+						
+					default:
+						return new SortFragment();
+				}
+			}
+			
+			@Override
+			public CharSequence getPageTitle(int position)
+			{
+				switch (position)
+				{
+					case 0:
+						return getResources().getString(R.string.input);
+					default:
+						return "Sort";
+				}
+			}
+		};
+		pager.setAdapter(pa);
+	
+		
+		/*
+		 
 		final TextView textView = (TextView) findViewById(R.id.text);
 		final Button copyButton = (Button) findViewById(R.id.copy_btn);
 		final Button shareButton = (Button) findViewById(R.id.share_btn);
@@ -118,6 +169,7 @@ public class MainActivity extends Activity
 					finish();
                 }
             });
+			*/
 	}
 
 	private void copy(String result)
